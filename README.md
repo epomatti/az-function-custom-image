@@ -1,5 +1,7 @@
 # Azure Function with Custom Image
 
+![Az Functions Docker](https://github.com/epomatti/az-function-custom-image/actions/workflows/docker-image.yml/badge.svg)
+
 Custom image for an Azure Functions application.
 
 ## Local development
