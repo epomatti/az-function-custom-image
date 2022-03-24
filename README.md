@@ -1,30 +1,34 @@
 # Azure Function with Custom Image
 
-### Running it
+Custom image for an Azure Functions application.
+
+## Local development
+
+Start the storage emulator:
+
+```sh
+azurite-blob -l azurite
+```
+
+Create the settings file:
+
+```sh
+cp local.settings.Development.json local.settings.json
+```
+
+Install and start the app:
 
 ```sh
 python3 -m venv .venv
 source .venv/bin/activate
-func start --build
+pip install -r requirements.txt
+
+func start
 ```
 
-### Infrastructure
+## Docker
 
-```sh
-az storage account create -n <name> -g <group> -l <location> --sku Standard_LRS
-az storage account show-connection-string -g <group> -n <name>
-```
 
-### Building from scratch
-
-```
-sudo apt-get install python3-venv
-python3 -m venv .venv
-source .venv/bin/activate
-func init . --worker-runtime python --docker
-func new --name ProducerFunction --template "TimerTrigger"
-func start --build
-```
 
 ### Reference
 
